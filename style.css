@@ -1,0 +1,260 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #DBE2E9;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center the content horizontally */
+    align-items: flex-start; /* Align items to the start vertically */
+    width: 100%;
+    height: 100%;
+    gap: 5%;
+}
+
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    width: 100%;
+
+}
+
+
+header {
+    margin-bottom: 50px;
+    border-bottom: 1px solid #d0d0d0; /* Really thin line - change color as desired */
+    background-color: #E6EDf5;
+}
+
+header nav {
+    text-align: center;
+}
+header nav ul{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+}
+header nav ul li{
+    margin: 10px;
+}
+
+
+header nav a {
+    text-decoration: none;
+    color: #616E78;
+    position: relative; /* Add position relative so that the pseudo-element is positioned relative to this element */
+    padding-bottom: 5px; /* Add padding to give space for the underline */
+    overflow: hidden; /* Ensure the pseudo-element is clipped to the anchor's dimensions */
+}
+
+/* Add before the pseudo-element with a thick underline */
+header nav a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px; /* Thickness of the underline */
+    bottom: 0; /* Align to the bottom of the link */
+    left: 50%; /* Start from the center */
+    background-color: #616E78; /* Same as the text color */
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+/* When hovering over the link, animate the pseudo-element */
+header nav a:hover::before {
+    visibility: visible;
+    width: 100%;
+    left: 0;
+}
+
+aside {
+    float: left;
+    width: 200px;
+
+    margin-left: 5%;
+    text-align: center;
+    height: 100%;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+aside a:nth-child(4)::before {
+    content: '\f3c5'; /* Font Awesome envelope symbol */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-right: 20px;
+}
+aside a:nth-child(5)::before {
+    content: '\f0e0'; /* Font Awesome envelope symbol */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-right: 20px;
+}
+
+aside a:nth-child(6)::before {
+    content: '\f08c'; /* Font Awesome LinkedIn symbol */
+    font-family: 'Font Awesome 5 Brands';
+    margin-right: 20px;
+}
+
+/* GitHub icon */
+aside a:nth-child(7)::before {
+    content: '\f09b'; /* Font Awesome GitHub symbol */
+    font-family: 'Font Awesome 5 Brands';
+    margin-right: 20px;
+}
+
+aside a:nth-child(5):hover {
+    text-decoration: underline;
+}
+aside a:nth-child(6):hover {
+    text-decoration: underline;
+}
+aside a:nth-child(7):hover {
+    text-decoration: underline;
+}
+
+
+
+aside img{
+    border-radius: 50%; /* Makes the image round */
+    width: 100%; /* Adjust as needed */
+    border: 5px solid #8f9da4;
+}
+
+aside h2 {
+    margin-top: 10px;
+    font-size: 22px;
+}
+
+aside p {
+    font-size: 14px;
+    line-height: 1.2;
+    color: #666;
+}
+
+aside a {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #666;
+}
+
+aside a::before {
+    display: inline-block;
+    width: 0; /* Fixed width for alignment */
+    margin-right: 8px; /* Space between icon and text */
+    content: ''; /* We will use pseudo-elements for icons */
+    color: #0077cc; /* Icon color */
+}
+
+aside a {
+    display: block;
+    margin-top: 10px;
+    line-height: 1.4;
+    color: #666;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+main {
+
+    flex-grow: 1;
+    background-color: #E6EDf5;
+    padding: 20px;
+
+    margin-right: 7%;
+    overflow: auto; /* Change hidden to auto to allow scrolling if content overflows */
+    margin-bottom: 50px; /* Add space at the bottom */
+    max-width: 1200px;
+}
+
+main h1 {
+    color: #333;
+    border-bottom: 1px solid #d0d0d0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+main h2 {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+main p {
+    text-align: justify;
+}
+
+main a {
+    color: #0077cc;
+    text-decoration: none;
+}
+
+main a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #8f9da4;
+    color: #fff;
+    margin-top: 40px;
+
+}
+
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: center; /* Center the content vertically */
+        flex:1;
+    }
+    aside img{
+        width: 100px;
+    }
+    aside,
+    main {
+        width: auto; /* Adjust the width to fit the content */
+        max-width: 100%; /* Ensure the content doesn't overflow the screen width */
+        margin-left:20px;
+        margin-right: 20px;
+        padding: 15px; /* Adjust as needed */
+    }
+
+    header nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    header nav ul li {
+        margin: 5px; /* Adjust as needed */
+    }
+
+    html, body {
+        height: auto; /* Change from 100% to auto to allow natural document flow */
+        margin: 0;
+        width: 100%;
+        overflow-x: hidden; /* Hide horizontal scrollbar if not needed */
+    }
+
+}
+
+.page-container{
+
+}
+
