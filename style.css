@@ -183,7 +183,7 @@ main {
 
     flex-grow: 1;
     background-color: #E6EDf5;
-    padding: 20px;
+    padding: 10px 20px;
 
     margin-right: 7%;
     overflow: auto; /* Change hidden to auto to allow scrolling if content overflows */
