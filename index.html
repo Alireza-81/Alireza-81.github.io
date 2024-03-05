@@ -66,3 +66,35 @@
     </footer>
 </body>
 </html>
+
+<style>
+  aside {
+    float: left;
+    margin-left: 5%;
+    text-align: center;
+    height: 100%;
+      padding: 50px 25px;
+      width: 400px;
+  }
+
+  .chrome aside {
+    width: 400px;
+  }
+
+  .safari aside {
+    width: 200px;
+  }
+</style>
+
+<script>
+  // A very basic way to detect browsers using the user agent
+  // Note: User agent detection is not always reliable
+  var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+  var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+
+  if (isChrome) {
+    document.body.classList.add('chrome');
+  } else if (isSafari) {
+    document.body.classList.add('safari');
+  }
+</script>
