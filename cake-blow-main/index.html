@@ -123,7 +123,7 @@
             ctx.save();
             ctx.translate(p.x, p.y);
             ctx.rotate(p.rot);
-            ctx.globalAlpha = Math.max(0, 1 - elapsed/3000); // fade out over 3s
+            ctx.globalAlpha = Math.max(0, 1 - elapsed/6000); // fade out over 3s
             ctx.fillStyle = p.color;
             // slightly “wobbly” rectangle
             ctx.fillRect(-p.size/2 + Math.sin(p.tilt)*2, -p.size/2, p.size, p.size*0.6);
