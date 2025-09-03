@@ -111,7 +111,7 @@
           ctx.clearRect(0,0,W,H);
 
           // Burst for ~600ms
-          if (elapsed < 600) for (let i=0;i<25;i++) spawnOne();
+          if (elapsed < 2000) for (let i=0;i<25;i++) spawnOne();
 
           parts.forEach(p => {
             p.x += p.vx;
