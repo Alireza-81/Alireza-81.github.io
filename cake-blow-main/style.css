@@ -56,7 +56,7 @@ body {
   height: 100px;
   border-radius: 50%;
   background-color: #f2d0df;
-  box-shadow: 0 2px 0px #f2d0df, 0 4px 0px #f4c8db, 0 6px 0px #f6bdd6, 0 8px 0px #f9b0d0, 0 10px 0px #feadd0, 0 12px 0px #fc9fc7, 0 14px 0px #f2d0df, 0 16px 0px #f2d0df, 0 18px 0px #f2d0df, 0 20px 0px #f2d0df, 0 22px 0px #f2d0df, 0 24px 0px #f2d0df, 0 26px 0px #f2d0df, 0 28px 0px #f2d0df, 0 30px 0px #f2d0df;
+  box-shadow: 0 2px 0px #f2d0df, 0 4px 0px #f2d0df, 0 6px 0px #f6bdd6, 0 8px 0px #febbd8, 0 10px 0px #feadd0, 0 12px 0px #fc9fc7, 0 14px 0px #f2d0df, 0 16px 0px #f2d0df, 0 18px 0px #f2d0df, 0 20px 0px #f2d0df, 0 22px 0px #f2d0df, 0 24px 0px #f2d0df, 0 26px 0px #f2d0df, 0 28px 0px #f2d0df, 0 30px 0px #f2d0df;
 }
 
 .layer-top {
