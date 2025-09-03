@@ -57,7 +57,7 @@
   <body>
     <!-- Candle count / greeting -->
     <div class="candle-count-display" aria-live="polite">
-      Happy <span id="candleCount">0</span>rd Birthday Kimia!
+      Happy <span id="candleCount">0</span><span id="ordinalSuffix">th</span> Birthday Kimia!
     </div>
 
     <!-- Cake -->
@@ -110,8 +110,8 @@
 
           ctx.clearRect(0,0,W,H);
 
-          // Burst for ~600ms
-          if (elapsed < 2000) for (let i=0;i<25;i++) spawnOne();
+          // Burst for ~2.5s
+          if (elapsed < 2500) for (let i=0;i<25;i++) spawnOne();
 
           parts.forEach(p => {
             p.x += p.vx;
@@ -123,7 +123,7 @@
             ctx.save();
             ctx.translate(p.x, p.y);
             ctx.rotate(p.rot);
-            ctx.globalAlpha = Math.max(0, 1 - elapsed/6000); // fade out over 3s
+            ctx.globalAlpha = Math.max(0, 1 - elapsed/3000); // fade out over ~4s
             ctx.fillStyle = p.color;
             // slightly “wobbly” rectangle
             ctx.fillRect(-p.size/2 + Math.sin(p.tilt)*2, -p.size/2, p.size, p.size*0.6);
@@ -250,6 +250,47 @@
             restoring = false;
           });
         });
+      })();
+    </script>
+
+    <!-- Dynamic ordinal suffix for the birthday number -->
+    <script>
+      (function () {
+        const countEl = document.getElementById('candleCount');
+        const suffixEl = document.getElementById('ordinalSuffix');
+        const container = document.querySelector('.candle-count-display');
+
+        function ordinal(n) {
+          n = Math.abs(parseInt(n, 10) || 0);
+          const mod100 = n % 100;
+          if (mod100 >= 11 && mod100 <= 13) return 'th';
+          switch (n % 10) {
+            case 1: return 'st';
+            case 2: return 'nd';
+            case 3: return 'rd';
+            default: return 'th';
+          }
+        }
+
+        function updateSuffix() {
+          const n = parseInt(countEl.textContent, 10) || 0;
+          const suf = ordinal(n);
+          suffixEl.textContent = suf;
+          container.setAttribute('aria-label', `Happy ${n}${suf} Birthday Kimia!`);
+        }
+
+        // Keep in sync with any changes to the number
+        const obs = new MutationObserver(updateSuffix);
+        obs.observe(countEl, { childList: true, characterData: true, subtree: true });
+
+        // Initialize
+        updateSuffix();
+
+        // Optional helper if your script.js prefers to set both:
+        window.setBirthdayCount = function (n) {
+          countEl.textContent = String(n);
+          updateSuffix();
+        };
       })();
     </script>
   </body>
