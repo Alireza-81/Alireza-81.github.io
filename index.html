@@ -3,114 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alireza Amiri</title>
+    <title>Alireza Amiri Bavandpour</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.glass-card').forEach((card) => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const px = x / rect.width;
+                    const py = y / rect.height;
+
+                    const rotateY = (px - 0.5) * 2;
+                    const rotateX = (0.5 - py) * 2;
+
+                    card.style.setProperty('--mx', `${px * 100}%`);
+                    card.style.setProperty('--my', `${py * 100}%`);
+                    card.style.transform =
+                        `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform =
+                        'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+                    card.style.setProperty('--mx', '50%');
+                    card.style.setProperty('--my', '50%');
+                });
+            });
+        });
+    </script>
 </head>
 <body>
 
-    <header>
-        <nav>
+    <header class="topbar">
+        <div class="nav-container">
+            <div class="brand">
+                <a href="#home">Alireza Amiri Bavandpour</a>
+            </div>
 
-        </nav>
-        <nav>
-            <ul >
-                <li><strong><a href="#home" >Alireza Amiri</a></strong></li>
-            </ul>
-            <ul >
-
-                <li><a href="Alireza_CV.pdf" download="Alireza_CV">CV</a></li>
-                <li><a href="#projects">Projects</a></li>
-            </ul>
-        </nav>
+            <nav class="nav-links">
+                <a href="Alireza_CV.pdf" download="Alireza_CV.pdf">CV</a>
+                <a href="#about">About</a>
+                <a href="#news">News</a>
+                <a href="#research">Research</a>
+                <a href="#publications">Publications</a>
+            </nav>
+        </div>
     </header>
-    <div class="content">
-        <aside>
-            <img src="me.jpeg" alt="Profile Picture">
-            <h2>Alireza Amiri</h2>
-            <p>Bachelor's Student in Computer Engineering</p>
-            <a>Tehran, Iran</a>
-            <a href="mailto:alireza81.amiri@gmail.com">Email</a>
-            <a href="https://www.linkedin.com/in/alireza-amiri-bavandpour-2222a721b/" target="_blank">LinkedIn</a>
-            <a href="https://github.com/Alireza-81" target="_blank">GitHub</a>
-            <!-- Add more contact details here -->
+
+    <div class="page-wrapper" id="home">
+        <aside class="glass-card sidebar-card">
+            <img src="me.jpeg" alt="Profile picture of Alireza Amiri Bavandpour" class="profile-image">
+
+            <h1>Alireza Amiri Bavandpour</h1>
+            <p class="role">B.Sc. Computer Engineering</p>
+            <p class="university">Sharif University of Technology</p>
+
+            <div class="interest-tags">
+                <span>LLM Theory</span>
+                <span>Expressivity</span>
+                <span>Mechanistic Interpretability</span>
+                <span>Trustworthy ML</span>
+               
+            </div>
+
+            <div class="contact-list">
+                <a href="#"><i class="fas fa-map-marker-alt"></i> Tehran, Iran</a>
+                <a href="mailto:alireza81.amiri@gmail.com"><i class="fas fa-envelope"></i> alireza81.amiri@gmail.com</a>
+                <a href="https://www.linkedin.com/in/alireza-amiri-bavandpour-2222a721b/" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://scholar.google.com/citations?user=xeJCQTcAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-graduation-cap"></i> Google Scholar
+                </a>
+            </div>
         </aside>
 
-        <main>
-            <section id=">AboutMe">
-                <h1>About Me</h1>
-                <!-- Add your publications here -->
-                <p>Hello!</p>
+        <main class="main-content">
+            <section class="glass-card hero-card" id="about">
+                <p class="eyebrow">About Me</p>
+                <h2>Researching the theoretical foundations of large language models</h2>
                 <p>
-                    I'm Alireza Amiri, a passionate and motivated Computer Engineering student at Sharif
-                    University of Technology. My primary research
-                    interests lie in the fields of Natural Language Processing, Computer Vision, their interpretability and their
-                    applications in creating robust and trustworthy technology.
+                    Hello! I’m Alireza 👋 
                 </p>
                 <p>
-                    I have been actively involved in research, particularly in the areas of Natural Language Processing
-                    and Vision Language Models. My current research involves working on Adversarial Data Augmentation on
-                    Text-to-Image (T2I) models at the L3S Research Center, under the supervision of Prof. Mitra Prasenjit
-                    and Dr. Ali Rasekh.
+                    I'm a research assistant at
+                    Yale University where I work remotely with the Yale NLP group under the supervision of Prof. Arman Cohan and Prof. John Sous. Previously I completed my Bachelor's degree at Sharif University of Technology.
                 </p>
                 <p>
-                    In addition to research, I have a strong foundation in mathematics, as evidenced by my achievements
-                    in various national and international Mathematical Olympiads. I received a Silver and Bronze medal
-                    in the national Mathematical Olympiad in 2019 and 2020.
+                    I am currently interested in understanding the underlying capabilities of language models. While these models demonstrate impressive skills, their lack of transparency and interpretability makes it challenging to understand how they make decisions and whether they truly understand the tasks they perform. My goal is to study and predict what kinds of behaviors and abilities emerge from different parts and properties of these models.                    
                 </p>
+
                 <p>
-                    I am constantly looking to push the boundaries of my knowledge and skills. My work is a testament
-                    to my dedication to advancing the field of Computer Science and my commitment to excellence in
-                    all my academic endeavors.
+                    To be more concrete, I am interested in mechanistic interpretability <em>(which internal components contribute to a models overall behavior)</em>, expressivity <em>(what can models learn and represent)</em> and reliablity <em>(how reliable are their predictions)</em>. A recent project in this domain that I worked on: <a href="https://arxiv.org/abs/2502.02393"> limits of Chain-of-Thought expressivity </a> 
                 </p>
 
             </section>
-            <section id="news">
-                <h1>News</h1>
-                <ul>
-<!--                     <li><strong>March 2024</strong> — I am happy to announce I will be joining the LaCoCo lab in Saarland University as an intern during the summer. I will be working on the Mathematic Analysis of Natural Language Models and Transformers under the supervision of Prof. Michael Hahn.</li>
-                    <li><strong>October 2023</strong> — I am starting to work as a research assistant! I will be working on Robustness and Data Augmentation of T2I models under the supervision of Prof. Mitra Prasenjit and Ali Rasekh.</li> -->
-                    <li><strong>August 2023</strong> — I am attending the CMMRS (Cornell, Maryland, Max Plank Pre-Doctoral Research School) 2023 in Saarbrücken. So excited to be here!</li>
-                    <li><strong>September 2021</strong> — I have started my B.Sc. of Computer Engineering in Sharif University of Technology.</li>
+
+            <section class="glass-card" id="news">
+                <h2>News</h2>
+                <ul class="styled-list">
+                    <li><strong>Feb 2026:</strong> New <a href="https://arxiv.org/abs/2602.20629">preprint</a>! In this work, we introduce QEDBench, a benchmark for studying how well automated evaluators align with human judgment on university-level mathematical proofs. Check the website <a href="https://quanquancliu.com/QEDBench/index.html">here</a>.</li>
+                    <li><strong>Sep 2025:</strong> I just started working with Yale NLP on mathematical reasoning in LLMs.</li>
+                    <li><strong>Feb 2025:</strong> Got admitted to Yale! Super excited to start my PhD in CS where I will be co-advised by Prof. Arman Cohan and Prof. John Sous. <b>Update:</b> Travel ban 😞. No visa for me ... </li>
+                    <li><strong>Feb 2025:</strong> New <a href="https://arxiv.org/abs/2502.02393">preprint</a> on conversational AI! We built ClariMM and Mario for better multi-turn, multi-modal clarification, outperforming previous methods.</li>
+                    <li><strong>Feb 2025:</strong> New <a href="https://arxiv.org/abs/2502.02393">preprint</a>! We study how long chains of thought need to be for transformers to solve different algorithmic problems. <b>Update:</b> accepted to ICML 2025!</li>
+                    <li><strong>Nov 2024</strong> Excited to start working remotely on conversational search with Prof. Mohammad Aliannejadi at the University of Amsterdam.</li>
+                    <li><strong>Jul 2024</strong> Very happy to be joining Saarland University for an internship under the supervision of Prof. Michael Hahn!</li>
+                    <li><strong>Jan 2024:</strong> Worked on a mininproject with CISPA on differential privacy in LLMs.</li>
+                    <li><strong>Aug 2023:</strong> Participated in the CMMRS program at the Max Planck Institute for Software Systems.</li>
                 </ul>
+            </section>
+
+
+            <section class="glass-card" id="publications">
+                <h2>Publications</h2>
+
+                <div class="publication-item">
+                    <p>
+                        <strong>S. Gonzalez, A. Amiri Bavandpour, P. Ye, E. Zhang, R. Aleksejevs, T. Antić, et al.</strong><br>
+                        <em>QEDBENCH: Quantifying the Alignment Gap in Automated Evaluation of University-Level Mathematical Proofs</em><br>
+                        <a href="https://arxiv.org/abs/2602.20629">arXiv 2026</a> 
+                    </p>
+                </div>
+
+                <div class="publication-item">
+                    <p>
+                        <strong>K. Ramezan, A. Amiri Bavandpour, Y. Yuan, C. Siro, and M. Aliannejadi</strong><br>
+                        <em>Multi-Turn Multi-Modal Question Clarification for Enhanced Conversational Understanding</em><br>
+                        <a href="https://arxiv.org/abs/2502.11442">arXiv 2025</a> 
+                    </p>
+                </div>
+
+                <div class="publication-item">
+                    <p>
+                        <strong>A. Amiri Bavandpour, X. Huang, M. Rofin, and M. Hahn</strong><br>
+                        <em>Lower Bounds for Chain-of-Thought Reasoning in Hard-Attention Transformers</em><br>
+                        <a href="https://arxiv.org/abs/2502.02393">ICML 2025</a>
+                    </p>
+                </div>
+
+                
+
+                
             </section>
         </main>
     </div>
 
     <footer>
-        <p>&copy; 2024 Alireza Amiri</p>
+        <p>&copy; 2026 Alireza Amiri Bavandpour</p>
     </footer>
+
 </body>
 </html>
-
-<style>
-  aside {
-    float: left;
-    margin-left: 5%;
-    text-align: center;
-    height: 100%;
-      padding: 50px 25px;
-      width: 400px;
-  }
-
-  .chrome aside {
-    width: 400px;
-  }
-
-  .safari aside {
-    width: 200px;
-  }
-</style>
-
-<script>
-  // A very basic way to detect browsers using the user agent
-  // Note: User agent detection is not always reliable
-  var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-  var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
-
-  if (isChrome) {
-    document.body.classList.add('chrome');
-  } else if (isSafari) {
-    document.body.classList.add('safari');
-  }
-</script>
