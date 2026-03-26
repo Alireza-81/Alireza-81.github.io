@@ -18,8 +18,10 @@
                     const px = x / rect.width;
                     const py = y / rect.height;
 
-                    const rotateY = (px - 0.5) * 2;
-                    const rotateX = (0.5 - py) * 2;
+                    // const rotateY = (px - 0.5) * 2;
+                    // const rotateX = (0.5 - py) * 2;
+                    const rotateY = 0;
+                    const rotateX = 0;
 
                     card.style.setProperty('--mx', `${px * 100}%`);
                     card.style.setProperty('--my', `${py * 100}%`);
@@ -85,7 +87,7 @@
         <main class="main-content">
             <section class="glass-card hero-card" id="about">
                 <p class="eyebrow">About Me</p>
-                <h2>Researching the theoretical foundations of large language models</h2>
+                <h2>Researching the foundations of language models</h2>
                 <p>
                     Hello! I’m Alireza 👋 
                 </p>
