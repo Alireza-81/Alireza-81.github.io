@@ -3,161 +3,702 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Alireza Amiri Bavandpour</title>
+
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        rel="stylesheet"
+    >
 
     <script defer>
         document.addEventListener('DOMContentLoaded', () => {
+
             document.querySelectorAll('.glass-card').forEach((card) => {
+
                 card.addEventListener('mousemove', (e) => {
+
                     const rect = card.getBoundingClientRect();
+
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
 
                     const px = x / rect.width;
                     const py = y / rect.height;
 
-                    // const rotateY = (px - 0.5) * 2;
-                    // const rotateX = (0.5 - py) * 2;
                     const rotateY = 0;
                     const rotateX = 0;
 
                     card.style.setProperty('--mx', `${px * 100}%`);
                     card.style.setProperty('--my', `${py * 100}%`);
+
                     card.style.transform =
-                        `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
+                        `perspective(1000px)
+                        rotateX(${rotateX}deg)
+                        rotateY(${rotateY}deg)
+                        translateY(-3px)`;
                 });
+
 
                 card.addEventListener('mouseleave', () => {
+
                     card.style.transform =
                         'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+
                     card.style.setProperty('--mx', '50%');
                     card.style.setProperty('--my', '50%');
+
                 });
+
             });
+
         });
     </script>
+
 </head>
+
+
 <body>
 
-    <header class="topbar">
-        <div class="nav-container">
-            <div class="brand">
-                <a href="#home">Alireza Amiri Bavandpour</a>
-            </div>
 
-            <nav class="nav-links">
-                <a href="Alireza_CV.pdf" download="Alireza_CV.pdf">CV</a>
-                <a href="#about">About</a>
-                <a href="#news">News</a>
-                <a href="#publications">Publications</a>
-            </nav>
+<header class="topbar">
+
+    <div class="nav-container">
+
+        <div class="brand">
+            <a href="#home">
+                Alireza Amiri Bavandpour
+            </a>
         </div>
-    </header>
-
-    <div class="page-wrapper" id="home">
-        <aside class="glass-card sidebar-card">
-            <img src="me.jpeg" alt="Profile picture of Alireza Amiri Bavandpour" class="profile-image">
-
-            <h1>Alireza Amiri Bavandpour</h1>
-            <p class="role">B.Sc. Computer Engineering</p>
-            <p class="university">Sharif University of Technology</p>
-
-            <div class="interest-tags">
-                <span>LLM Theory</span>
-                <span>Expressivity</span>
-                <span>Mechanistic Interpretability</span>
-                <span>Trustworthy ML</span>
-               
-            </div>
-
-            <div class="contact-list">
-                <a href="#"><i class="fas fa-map-marker-alt"></i> Tehran, Iran</a>
-                <a href="mailto:alireza81.amiri@gmail.com"><i class="fas fa-envelope"></i> alireza81.amiri@gmail.com</a>
-                <a href="https://www.linkedin.com/in/alireza-amiri-bavandpour-2222a721b/" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <a href="https://scholar.google.com/citations?user=xeJCQTcAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
-                    <i class="fas fa-graduation-cap"></i> Google Scholar
-                </a>
-            </div>
-        </aside>
-
-        <main class="main-content">
-            <section class="glass-card hero-card" id="about">
-                <p class="eyebrow">About Me</p>
-                <h2>Researching the foundations of language models</h2>
-                <p>
-                    Hello! I’m Alireza 👋 
-                </p>
-                <p>
-                    I'm a research assistant at
-                    Yale University where I work remotely with the Yale NLP group under the supervision of Prof. Arman Cohan and Prof. John Sous. Previously I completed my Bachelor's degree at Sharif University of Technology in Computer Engineering.
-                </p>
-                <p>
-                    I am currently interested in understanding the underlying capabilities of language models. While these models demonstrate impressive skills, their lack of transparency and interpretability makes it challenging to understand how they make decisions and whether they truly understand the tasks they perform. My goal is to study and predict what kinds of behaviors and abilities emerge from different parts and properties of these models.                    
-                </p>
-
-                <p>
-                    To be more concrete, I am interested in mechanistic interpretability <em>(which internal components contribute to a models overall behavior)</em>, expressivity <em>(what can models learn and represent)</em> and reliablity <em>(how reliable are their predictions)</em>. A recent project in this domain that I worked on: <a href="https://arxiv.org/abs/2502.02393"> Limits of Chain-of-Thought Expressivity </a> 
-                </p>
-
-            </section>
-
-            <section class="glass-card" id="news">
-                <h2>News</h2>
-                <ul class="styled-list">
-                    <li><strong>Feb 2026:</strong> New <a href="https://arxiv.org/abs/2602.20629">preprint</a>! In this work, we introduce QEDBench, a benchmark for studying how well automated evaluators align with human judgment on university-level mathematical proofs. Check the website <a href="https://quanquancliu.com/QEDBench/index.html">here</a>. <b>Update:</b> accepted to ICML 2026! </li>
-                    <li><strong>Sep 2025:</strong> I just started working with Yale NLP on mathematical reasoning in LLMs.</li>
-                    <li><strong>Feb 2025:</strong> Got admitted to Yale! Super excited to start my PhD in CS where I will be co-advised by Prof. Arman Cohan and Prof. John Sous. <b>Update:</b> Travel ban 😞. No visa for me ... </li>
-                    <li><strong>Feb 2025:</strong> New <a href="https://arxiv.org/abs/2502.02393">preprint</a> on conversational AI! We built ClariMM and Mario for better multi-turn, multi-modal clarification, outperforming previous methods.</li>
-                    <li><strong>Feb 2025:</strong> New <a href="https://arxiv.org/abs/2502.02393">preprint</a>! We study how long chains of thought need to be for transformers to solve different algorithmic problems. <b>Update:</b> accepted to ICML 2025!</li>
-                    <li><strong>Nov 2024:</strong> Excited to start working remotely on conversational search with Prof. Mohammad Aliannejadi at the University of Amsterdam.</li>
-                    <li><strong>Jul 2024:</strong> Very happy to be joining Saarland University for an internship under the supervision of Prof. Michael Hahn!</li>
-                    <li><strong>Jan 2024:</strong> Worked on a mininproject with CISPA on differential privacy in LLMs.</li>
-                    <li><strong>Aug 2023:</strong> Participated in the CMMRS program at the Max Planck Institute for Software Systems.</li>
-                </ul>
-            </section>
 
 
-            <section class="glass-card" id="publications">
-                <h2>Publications</h2>
+        <nav class="nav-links">
 
-                <div class="publication-item">
-                    <p>
-                        <strong>S. Gonzalez*, A. Amiri Bavandpour*, P. Ye*, E. Zhang*, R. Aleksejevs, T. Antić, et al.</strong><br>
-                        <em>QEDBENCH: Quantifying the Alignment Gap in Automated Evaluation of University-Level Mathematical Proofs</em><br>
-                        <a href="https://arxiv.org/abs/2602.20629">ICML 2026</a> 
-                    </p>
-                </div>
+            <a
+                href="Alireza_CV.pdf"
+                download="Alireza_CV.pdf"
+            >
+                CV
+            </a>
 
-                <div class="publication-item">
-                    <p>
-                        <strong>K. Ramezan, A. Amiri Bavandpour, Y. Yuan, C. Siro, and M. Aliannejadi</strong><br>
-                        <em>Multi-Turn Multi-Modal Question Clarification for Enhanced Conversational Understanding</em><br>
-                        <a href="https://arxiv.org/abs/2502.11442">arXiv 2025</a> 
-                    </p>
-                </div>
+            <a href="#about">
+                About
+            </a>
 
-                <div class="publication-item">
-                    <p>
-                        <strong>A. Amiri Bavandpour, X. Huang, M. Rofin, and M. Hahn</strong><br>
-                        <em>Lower Bounds for Chain-of-Thought Reasoning in Hard-Attention Transformers</em><br>
-                        <a href="https://arxiv.org/abs/2502.02393">ICML 2025</a>
-                    </p>
-                </div>
+            <a href="#news">
+                News
+            </a>
 
-                <footer style="text-align: left; margin-left: 0px;margin-bottom: 0px; padding-left: 0px; padding-bottom: 0px;"> <small>* Denotes equal contirbution</small></footer>
+            <a href="#publications">
+                Publications
+            </a>
 
-                
-            </section>
-        </main>
+        </nav>
+
     </div>
 
-    <footer>
-        <p>&copy; 2026 Alireza Amiri Bavandpour</p>
-    </footer>
+</header>
+
+
+
+<div
+    class="page-wrapper"
+    id="home"
+>
+
+
+    <!-- =========================
+         PROFILE / SIDEBAR
+    ========================== -->
+
+    <aside class="glass-card sidebar-card">
+
+
+        <img
+            src="me.jpeg"
+            alt="Profile picture of Alireza Amiri Bavandpour"
+            class="profile-image"
+        >
+
+
+        <h1>
+            Alireza Amiri Bavandpour
+        </h1>
+
+
+        <p class="role">
+            Ph.D. Student - Department of Computer Science
+        </p>
+
+
+        <p class="university">
+            University of Oxford
+        </p>
+
+
+
+        <div class="interest-tags">
+
+            <span>
+                LLM Theory
+            </span>
+
+            <span>
+                Expressivity
+            </span>
+
+            <span>
+                Mechanistic Interpretability
+            </span>
+
+            <span>
+                Trustworthy ML
+            </span>
+
+        </div>
+
+
+
+        <div class="contact-list">
+
+
+            <a href="#">
+
+                <i class="fas fa-map-marker-alt"></i>
+
+                Tehran, Iran
+
+            </a>
+
+
+
+            <a href="mailto:alireza81.amiri@gmail.com">
+
+                <i class="fas fa-envelope"></i>
+
+                alireza81.amiri@gmail.com
+
+            </a>
+
+
+
+            <a
+                href="https://www.linkedin.com/in/alireza-amiri-bavandpour-2222a721b/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <i class="fab fa-linkedin"></i>
+
+                LinkedIn
+
+            </a>
+
+
+
+            <a
+                href="https://scholar.google.com/citations?user=xeJCQTcAAAAJ&hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <i class="fas fa-graduation-cap"></i>
+
+                Google Scholar
+
+            </a>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section
+            class="glass-card hero-card"
+            id="about"
+        >
+
+
+            <p class="eyebrow">
+                About Me
+            </p>
+
+
+            <h2>
+                Researching the foundations of language models
+            </h2>
+
+
+            <p>
+                Hello! I’m Alireza 👋
+            </p>
+
+
+            <p>
+
+                I'm an incoming PhD student at the University of Oxford,
+                where I will be working under the supervision of
+                Prof. Varun Kanade and Prof. Jiarui Gan.
+
+                I will also be working as a research assistant in the
+                TSG Lab.
+
+                My studies will be supported by the Jane Street scholarship.
+
+                Previously, I was a research assistant at Yale University,
+                working remotely with the Yale NLP group and before that,
+                I completed my Bachelor's degree in Computer Engineering
+                at Sharif University of Technology.
+
+            </p>
+
+
+            <p>
+
+                I am currently interested in understanding the underlying
+                capabilities of language models.
+
+                While these models demonstrate impressive skills, their
+                lack of transparency and interpretability makes it
+                challenging to understand how they make decisions and
+                whether they truly understand the tasks they perform.
+
+                My goal is to study and predict what kinds of behaviors
+                and abilities emerge from different parts and properties
+                of these models.
+
+            </p>
+
+
+            <p>
+
+                To be more concrete, I am interested in
+
+                mechanistic interpretability
+
+                <em>
+                    (which internal components contribute to a models overall behavior)
+                </em>,
+
+                expressivity
+
+                <em>
+                    (what can models learn and represent)
+                </em>
+
+                and reliability
+
+                <em>
+                    (how reliable are their predictions)
+                </em>.
+
+                A recent project in this domain that I worked on:
+
+                <a href="https://arxiv.org/abs/2502.02393">
+                    Limits of Chain-of-Thought Expressivity
+                </a>
+
+            </p>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             NEWS
+        ========================== -->
+
+        <section
+            class="glass-card"
+            id="news"
+        >
+
+
+            <h2>
+                News
+            </h2>
+
+
+            <ul class="styled-list">
+
+
+                <li>
+
+                    <strong>
+                        Mar 2026:
+                    </strong>
+
+                    Excited to share that I’ll be joining the Department
+                    of Computer Science at the University of Oxford as a
+                    PhD student.
+
+                    Looking forward to this amazing new chapter!
+
+                    <b>Update:</b>
+
+                    Got my Visa 🎉.
+
+                    No more issues this time :&#41;
+
+                </li>
+
+
+
+                <li>
+
+                    <strong>
+                        Feb 2026:
+                    </strong>
+
+                    New
+
+                    <a href="https://arxiv.org/abs/2602.20629">
+                        preprint
+                    </a>!
+
+                    In this work, we introduce QEDBench, a benchmark
+                    for studying how well automated evaluators align
+                    with human judgment on university-level mathematical
+                    proofs.
+
+                    Check the website
+
+                    <a href="https://quanquancliu.com/QEDBench/index.html">
+                        here
+                    </a>.
+
+                    <b>
+                        Update:
+                    </b>
+
+                    Accepted to ICML 2026!
+
+                </li>
+
+
+
+                <li>
+
+                    <strong>
+                        Sep 2025:
+                    </strong>
+
+                    I just started working with Yale NLP on mathematical
+                    reasoning in LLMs.
+
+                </li>
+
+
+
+                <li>
+
+                    <strong>
+                        Feb 2025:
+                    </strong>
+
+                    Got admitted to Yale!
+
+                    Super excited to start my PhD in CS where I will be
+                    co-advised by Prof. Arman Cohan and Prof. John Sous.
+
+                    <b>
+                        Update:
+                    </b>
+
+                    Travel ban 😞.
+
+                    No visa for me ...
+
+                </li>
+
+
+
+                <li>
+
+                    <strong>
+                        Feb 2025:
+                    </strong>
+
+                    New
+
+                    <a href="https://arxiv.org/abs/2502.02393">
+                        preprint
+                    </a>
+
+                    on conversational AI!
+
+                    We built ClariMM and Mario for better multi-turn,
+                    multi-modal clarification, outperforming previous
+                    methods.
+
+                </li>
+
+
+
+                <li>
+
+                    <strong>
+                        Feb 2025:
+                    </strong>
+
+                    New
+
+                    <a href="https://arxiv.org/abs/2502.02393">
+                        preprint
+                    </a>!
+
+                    We study how long chains of thought need to be for
+                    transformers to solve different algorithmic problems.
+
+                    <b>
+                        Update:
+                    </b>
+
+                    Accepted to ICML 2025!
+
+                </li>
+
+
+
+                <li>
+
+                    <strong>
+                        Nov 2024:
+                    </strong>
+
+                    Excited to start working remotely on conversational
+                    search with Prof. Mohammad Aliannejadi at the
+                    University of Amsterdam.
+
+                </li>
+
+
+
+                <li>
+
+                    <strong>
+                        Jul 2024:
+                    </strong>
+
+                    Very happy to be joining Saarland University for an
+                    internship under the supervision of Prof. Michael Hahn!
+
+                </li>
+
+
+
+                <li>
+
+                    <strong>
+                        Jan 2024:
+                    </strong>
+
+                    Worked on a miniproject with CISPA on differential
+                    privacy in LLMs.
+
+                </li>
+
+
+
+                <li>
+
+                    <strong>
+                        Aug 2023:
+                    </strong>
+
+                    Participated in the CMMRS program at the Max Planck
+                    Institute for Software Systems.
+
+                </li>
+
+
+            </ul>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             PUBLICATIONS
+        ========================== -->
+
+        <section
+            class="glass-card"
+            id="publications"
+        >
+
+
+            <h2>
+                Publications
+            </h2>
+
+
+
+            <div class="publication-item">
+
+                <p>
+
+                    <strong>
+                        S. Gonzalez*,
+                        A. Amiri Bavandpour*,
+                        P. Ye*,
+                        E. Zhang*,
+                        R. Aleksejevs,
+                        T. Antić,
+                        et al.
+                    </strong>
+
+                    <br>
+
+
+                    <em>
+
+                        QEDBENCH: Quantifying the Alignment Gap in
+                        Automated Evaluation of University-Level
+                        Mathematical Proofs
+
+                    </em>
+
+                    <br>
+
+
+                    <a href="https://arxiv.org/abs/2602.20629">
+                        ICML 2026
+                    </a>
+
+                </p>
+
+            </div>
+
+
+
+            <div class="publication-item">
+
+                <p>
+
+                    <strong>
+
+                        K. Ramezan,
+                        A. Amiri Bavandpour,
+                        Y. Yuan,
+                        C. Siro,
+                        and M. Aliannejadi
+
+                    </strong>
+
+                    <br>
+
+
+                    <em>
+
+                        Multi-Turn Multi-Modal Question Clarification
+                        for Enhanced Conversational Understanding
+
+                    </em>
+
+                    <br>
+
+
+                    <a href="https://arxiv.org/abs/2502.11442">
+                        arXiv 2025
+                    </a>
+
+                </p>
+
+            </div>
+
+
+
+            <div class="publication-item">
+
+                <p>
+
+                    <strong>
+
+                        A. Amiri Bavandpour,
+                        X. Huang,
+                        M. Rofin,
+                        and M. Hahn
+
+                    </strong>
+
+                    <br>
+
+
+                    <em>
+
+                        Lower Bounds for Chain-of-Thought Reasoning
+                        in Hard-Attention Transformers
+
+                    </em>
+
+                    <br>
+
+
+                    <a href="https://arxiv.org/abs/2502.02393">
+                        ICML 2025
+                    </a>
+
+                </p>
+
+            </div>
+
+
+
+            <footer
+                style="
+                    text-align: left;
+                    margin-left: 0;
+                    margin-bottom: 0;
+                    padding-left: 0;
+                    padding-bottom: 0;
+                "
+            >
+
+                <small>
+                    * Denotes equal contribution
+                </small>
+
+            </footer>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<footer>
+
+    <p>
+        &copy; 2026 Alireza Amiri Bavandpour
+    </p>
+
+</footer>
+
 
 </body>
 </html>
